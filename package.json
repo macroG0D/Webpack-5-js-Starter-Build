@@ -1,0 +1,30 @@
+{
+  "name": "webpack-starter",
+  "version": "1.0.0",
+  "description": "webpack js start project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/macroG0D/webpack-starter.git"
+  },
+  "keywords": [
+    "js",
+    "javascript",
+    "webpack",
+    "ready"
+  ],
+  "author": "macroG0D <tonyrhesus@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/macroG0D/webpack-starter/issues"
+  },
+  "homepage": "https://github.com/macroG0D/webpack-starter#readme",
+  "devDependencies": {
+    "cross-env": "^7.0.2",
+    "webpack": "^5.4.0",
+    "webpack-cli": "^4.2.0"
+  }
+}
