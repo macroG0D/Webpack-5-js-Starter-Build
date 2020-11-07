@@ -1,0 +1,29 @@
+// @import "~normalize-scss";
+// @import './base/fonts';
+@import './abstracts/mixins';
+@import './abstracts/variables';
+
+:root {
+  font-size: 10px;
+  font-family: 'Roboto-regular', sans-serif;
+}
+
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  background: #000;
+}
+
+h1 {
+  color: coral;
+}
+
+p {
+  color: blue;
+  font-size: 12rem;
+  font-weight: normal;
+}

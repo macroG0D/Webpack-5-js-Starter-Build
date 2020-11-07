@@ -1,0 +1,194 @@
+@mixin fontstyle () {
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 1.8rem;
+  line-height: 140%;
+}
+
+
+@mixin active-key () {
+  background: linear-gradient(241deg, #39ffcc, #39d2ff, #ff39c3, #ff3939, #faff39, #25fb0f);
+  background-size: 1200% 1200%;
+  -webkit-animation: gradient-animation 22s ease infinite;
+  -moz-animation: gradient-animation 22s ease infinite;
+  -o-animation: gradient-animation 22s ease infinite;
+  animation: gradient-animation 22s ease infinite;
+  @-webkit-keyframes gradient-animation {
+      0%{background-position:0% 79%}
+      50%{background-position:100% 22%}
+      100%{background-position:0% 79%}
+  }
+  @-moz-keyframes gradient-animation {
+      0%{background-position:0% 79%}
+      50%{background-position:100% 22%}
+      100%{background-position:0% 79%}
+  }
+  @-o-keyframes gradient-animation {
+      0%{background-position:0% 79%}
+      50%{background-position:100% 22%}
+      100%{background-position:0% 79%}
+  }
+  @keyframes gradient-animation {
+      0%{background-position:0% 79%}
+      50%{background-position:100% 22%}
+      100%{background-position:0% 79%}
+  }
+}
+
+
+@mixin key-special ($width: 5rem, $bgcolor: radial-gradient(50% 50% at 50% 50%, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), $color: #fff) {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  min-width: 5rem;
+  width: $width;
+  height: 5rem;
+  padding: 1.2rem;
+  align-items: center;
+  border-radius: .6rem;
+  background: $bgcolor;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: $color;
+  &:hover {
+    filter: drop-shadow(0px 4px 5px rgba(0, 0, 0, 0.0));
+    transform: rotateZ(.5deg);
+  }
+
+  @media (max-width: 1140px) {
+    width: 10rem;
+  }
+
+  @media (max-width: 906px) {
+    // font-size: 1.2rem;
+    font-size: 1.4rem;
+    width: 100%;
+  }
+}
+
+@mixin key-double ($width: 5rem, $bgcolor: radial-gradient(50% 50% at 50% 50%, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), $color: $color) {
+  display: flex;
+  justify-content: center;
+  width: $width;
+  height: 5rem;
+  padding: 1.2rem;
+  align-items: center;
+  border-radius: .6rem;
+  background: $bgcolor;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: $color;
+
+  & .symbols {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    & .first {
+      // font-size: 1.2rem;
+      font-size: 1.4rem;
+      font-weight: 400;
+      position: relative;
+    }
+
+    & .second {
+      position: relative;
+      font-size: 1.6rem;
+      margin: auto;
+      bottom: 0.4rem;
+    }
+  }
+
+  &:hover {
+    filter: drop-shadow(0px 4px 5px rgba(0, 0, 0, 0.0));
+    transform: rotateZ(.5deg);
+  }
+
+  @media (max-width: 1140px) {
+    width: 5rem;
+  }
+  @media (max-width: 916px) {
+    width: 4.5rem;
+  }
+
+  @media (max-width: 906px) {
+    width: 100%;
+    border-radius: .4rem;
+
+    & .symbols {
+      & .first {
+        // font-size: 1.2rem;
+        font-size: 1.4rem;
+        left: -.5rem;
+      }
+
+      & .second {
+        font-size: 1.4rem;
+        bottom: 0rem;
+        right: -.5rem;
+      }
+    }
+  }
+
+  @media (max-width: 740px) {
+    & .symbols {
+      width: 100%;
+      margin: auto;
+
+      & .first {
+        right: 0;
+      }
+
+      & .second {
+        right: 0rem;
+      }
+    }
+  }
+}
+
+@mixin key-letter ($width: 5rem, $bgcolor: radial-gradient(50% 50% at 50% 50%, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), $color: $color) {
+  display: flex;
+  justify-content: center;
+  width: $width;
+  height: 5rem;
+  padding: 1.2rem;
+  align-items: center;
+  border-radius: .6rem;
+  background: $bgcolor;
+  font-size: 2rem;
+  font-weight: 400;
+  color: $color;
+
+  &:hover {
+    filter: drop-shadow(0px 4px 5px rgba(0, 0, 0, 0.0));
+    transform: rotateZ(.5deg);
+  }
+
+  @media (max-width: 906px) {
+    width: 95%;
+    font-size: 1.6rem;
+    border-radius: .4rem;
+  }
+
+  @media (max-width: 620px) {
+    font-size: 1.5rem;
+  }
+}
+
+@mixin key-arrow ($width: 5rem, $bgcolor: radial-gradient(50% 50% at 50% 50%, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%)) {
+  display: flex;
+  justify-content: center;
+  width: $width;
+  height: 5rem;
+  padding: 1.2rem;
+  align-items: center;
+  border-radius: .6rem;
+  background: $bgcolor;
+  font-weight: 400;
+  position: relative;
+
+  &:hover {
+    filter: drop-shadow(0px 4px 5px rgba(0, 0, 0, 0.0));
+    transform: rotateZ(.5deg);
+  }
+}

@@ -1,3 +1,4 @@
+import '../styles/main.scss';
 import Model from './Model';
 
 const x = 1;
