@@ -3,6 +3,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+const isDev = process.env.NODE_ENV === 'development';
 
 module.exports = {
   context: path.resolve(__dirname, 'src'),
@@ -30,7 +33,7 @@ module.exports = {
     contentBase: path.resolve(__dirname, 'dist'),
     open: true,
     compress: true,
-    hot: true,
+    hot: isDev,
     port: 8080,
   },
   plugins: [
@@ -47,12 +50,20 @@ module.exports = {
         },
       ],
     }),
+    new MiniCssExtractPlugin({
+      filename: '[name].[hash].css',
+    }),
   ],
   module: {
     rules: [
       {
         test: /\.(scss|css)$/,
-        use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'],
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'postcss-loader',
+          'sass-loader',
+        ],
       },
     ],
   },
