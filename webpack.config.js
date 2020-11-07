@@ -1,7 +1,8 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const webpack = require('webpack')
+const webpack = require('webpack');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   context: path.resolve(__dirname, 'src'),
@@ -38,6 +39,14 @@ module.exports = {
     }),
     new CleanWebpackPlugin(),
     new webpack.HotModuleReplacementPlugin(),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, 'src/favicon.png'),
+          to: path.resolve(__dirname, 'dist'),
+        },
+      ],
+    }),
   ],
   module: {
     rules: [
