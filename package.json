@@ -2,7 +2,7 @@
   "name": "webpack-starter",
   "version": "1.0.0",
   "description": "webpack js start project",
-  "main": "index.js",
+  "private": true,
   "scripts": {
     "build": "webpack --mode production",
     "dev": "webpack --mode development"
