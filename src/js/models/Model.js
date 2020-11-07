@@ -3,12 +3,9 @@ export default class Model {
     this.title = title;
   }
 
-  testString() {
-    console.log(this.title);
-  }
-
-  testNumbers(x, y) {
-    let z = x + y;
-    return z;
+  testString(x, y) {
+    let result = x + y;
+    result = 4;
+    return this.title + result.toString();
   }
 }

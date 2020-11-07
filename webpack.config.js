@@ -5,11 +5,11 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 const isDev = process.env.NODE_ENV === 'development';
 
-const filename = (ext) =>
-  isDev ? `[name].${ext}` : `[name].[fullhash].${ext}`;
+const filename = (ext) => (isDev ? `[name].${ext}` : `[name].[fullhash].${ext}`);
 
 module.exports = {
   context: path.resolve(__dirname, 'src'),
@@ -43,6 +43,7 @@ module.exports = {
     port: 8080,
   },
   plugins: [
+    new ESLintPlugin(),
     new HtmlWebpackPlugin({
       template: './template.html',
     }),
