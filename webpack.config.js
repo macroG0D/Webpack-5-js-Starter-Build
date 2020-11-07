@@ -12,6 +12,12 @@ module.exports = {
     filename: '[name].[fullhash].js',
     path: path.resolve(__dirname, 'dist'),
   },
+  resolve: {
+    alias: {
+      '@models': path.resolve(__dirname, 'src/js/models'),
+      '@styles': path.resolve(__dirname, 'src/styles')
+    },
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: './template.html',
@@ -20,7 +26,6 @@ module.exports = {
   ],
   module: {
     rules: [
-      // CSS, PostCSS, Sass
       {
         test: /\.(scss|css)$/,
         use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'],

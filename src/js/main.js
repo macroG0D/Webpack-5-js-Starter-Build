@@ -1,5 +1,5 @@
-import '../styles/main.scss';
-import Model from './Model';
+import '@styles/main.scss';
+import Model from '@models/Model';
 
 const x = 1;
 const y = 2;
