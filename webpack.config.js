@@ -42,6 +42,7 @@ module.exports = {
     hot: isDev,
     port: 8080,
   },
+  devtool: isDev ? 'source-map' : 'nosources-source-map',
   plugins: [
     new ESLintPlugin(),
     new HtmlWebpackPlugin({
