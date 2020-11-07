@@ -3,9 +3,7 @@ export default class Model {
     this.title = title;
   }
 
-  testString(x, y) {
-    let result = x + y;
-    result = 4;
-    return this.title + result.toString();
+  testString() {
+    return this.title;
   }
 }

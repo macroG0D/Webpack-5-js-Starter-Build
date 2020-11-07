@@ -2,12 +2,9 @@ import '../styles/main.scss';
 import image from '../assets/images/tonyem.jpg';
 import Model from './models/Model';
 
-const x = 5;
-const y = 2;
+const model = new Model('Webpack 5 Javascript by TonYem');
 
-const model = new Model('Test title');
-
-model.testString(x, y);
+console.log(model.testString());
 const body = document.querySelector('body');
 const mainImage = document.createElement('img');
 const p = document.createElement('p');
