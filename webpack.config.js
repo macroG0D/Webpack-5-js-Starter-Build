@@ -21,6 +21,7 @@ module.exports = {
     alias: {
       '@models': path.resolve(__dirname, 'src/js/models'),
       '@styles': path.resolve(__dirname, 'src/styles'),
+      '@assets': path.resolve(__dirname, 'src/assets'),
     },
   },
   optimization: {
@@ -56,6 +57,10 @@ module.exports = {
   ],
   module: {
     rules: [
+      {
+        test: /\.(jpeg|jpg|png|svg|gif)$/,
+        use: ['file-loader'],
+      },
       {
         test: /\.(scss|css)$/,
         use: [
