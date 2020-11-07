@@ -15,7 +15,12 @@ module.exports = {
   resolve: {
     alias: {
       '@models': path.resolve(__dirname, 'src/js/models'),
-      '@styles': path.resolve(__dirname, 'src/styles')
+      '@styles': path.resolve(__dirname, 'src/styles'),
+    },
+  },
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
     },
   },
   plugins: [
