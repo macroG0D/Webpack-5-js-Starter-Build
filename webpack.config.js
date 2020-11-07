@@ -7,6 +7,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const isDev = process.env.NODE_ENV === 'development';
 
+const ASSET_PATH = process.env.ASSET_PATH || '/';
+
 module.exports = {
   context: path.resolve(__dirname, 'src'),
   mode: 'development',
@@ -15,6 +17,7 @@ module.exports = {
   },
   output: {
     filename: '[name].[fullhash].js',
+    publicPath: ASSET_PATH,
     path: path.resolve(__dirname, 'dist'),
   },
   resolve: {
@@ -22,6 +25,7 @@ module.exports = {
       '@models': path.resolve(__dirname, 'src/js/models'),
       '@styles': path.resolve(__dirname, 'src/styles'),
       '@assets': path.resolve(__dirname, 'src/assets'),
+      '@fonts': path.resolve(__dirname, 'src/assets/fonts'),
     },
   },
   optimization: {
@@ -69,6 +73,10 @@ module.exports = {
           'postcss-loader',
           'sass-loader',
         ],
+      },
+      {
+        test: /\.(ttf|woff|woff2|eot)$/,
+        use: ['file-loader'],
       },
     ],
   },
