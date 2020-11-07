@@ -5,7 +5,6 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
-const ASSET_PATH = process.env.ASSET_PATH || '/';
 
 const isDev = process.env.NODE_ENV === 'development';
 
@@ -16,11 +15,10 @@ module.exports = {
   context: path.resolve(__dirname, 'src'),
   mode: 'development',
   entry: {
-    main: './js/main.js',
+    main: ['@babel/polyfill', './js/main.js'],
   },
   output: {
     filename: filename('js'),
-    publicPath: ASSET_PATH,
     path: path.resolve(__dirname, 'dist'),
   },
   resolve: {
@@ -42,6 +40,7 @@ module.exports = {
     open: true,
     compress: true,
     hot: isDev,
+    stats: 'none',
     port: 8080,
   },
   plugins: [
@@ -87,7 +86,7 @@ module.exports = {
     rules: [
       {
         test: /\.(jpeg|jpg|png|svg|gif)$/,
-        use: ['file-loader'],
+        type: 'asset/resource',
       },
       {
         test: /\.(s[ac]ss|css)$/,
@@ -100,7 +99,14 @@ module.exports = {
       },
       {
         test: /\.(ttf|woff|woff2|eot)$/,
-        use: ['file-loader'],
+        type: 'asset/inline',
+      },
+      {
+        test: /\.m?js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+        },
       },
     ],
   },
