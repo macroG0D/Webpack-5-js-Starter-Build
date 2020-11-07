@@ -8,7 +8,7 @@ export default class Model {
   }
 
   testNumbers(x, y) {
-    z = x + y;
+    let z = x + y;
     return z;
   }
 }
