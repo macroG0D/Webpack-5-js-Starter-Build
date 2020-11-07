@@ -4,10 +4,12 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const ASSET_PATH = process.env.ASSET_PATH || '/';
 
 const isDev = process.env.NODE_ENV === 'development';
 
-const ASSET_PATH = process.env.ASSET_PATH || '/';
+const filename = (ext) =>
+  isDev ? `[name].${ext}` : `[name].[fullhash].${ext}`;
 
 module.exports = {
   context: path.resolve(__dirname, 'src'),
@@ -16,7 +18,7 @@ module.exports = {
     main: './js/main.js',
   },
   output: {
-    filename: '[name].[fullhash].js',
+    filename: filename('js'),
     publicPath: ASSET_PATH,
     path: path.resolve(__dirname, 'dist'),
   },
@@ -56,7 +58,7 @@ module.exports = {
       ],
     }),
     new MiniCssExtractPlugin({
-      filename: '[name].[hash].css',
+      filename: filename('css'),
     }),
   ],
   module: {
@@ -66,7 +68,7 @@ module.exports = {
         use: ['file-loader'],
       },
       {
-        test: /\.(scss|css)$/,
+        test: /\.(s[ac]ss|css)$/,
         use: [
           MiniCssExtractPlugin.loader,
           'css-loader',
