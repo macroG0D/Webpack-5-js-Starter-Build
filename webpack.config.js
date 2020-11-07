@@ -40,7 +40,6 @@ module.exports = {
     open: true,
     compress: true,
     hot: isDev,
-    stats: 'none',
     port: 8080,
   },
   plugins: [
