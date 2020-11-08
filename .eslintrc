@@ -9,6 +9,9 @@
     "node": true
   },
   "rules": {
-    "no-console": 0 //disable airbnb no console rule
+    "no-console": 0,
+    "no-unused-vars": 1,
+    "func-names": 0,
+    "class-methods-use-this": 0
   }
 }
