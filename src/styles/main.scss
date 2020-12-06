@@ -12,18 +12,67 @@
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+  transition: all 0.25s ease-out;
 }
 
 body {
-  background: black;
+  background: $bg-color;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: $accent-color;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+  outline: none;
 }
 
 h1 {
-  color: coral;
+  color: $accent-color;
 }
 
 p {
-  color: #fff;
-  font-size: 12rem;
-  font-weight: normal;
+  @include fontstyle();
+  max-width: 100%;
+  &:before {
+    content: '';
+    top: 0;
+    position: fixed;
+    width: 100%;
+    height: 7rem;
+    filter: blur(30rem);
+    z-index: -1;
+    @include active-key();
+  }
+  @media (max-width: 800px) {
+    font-size: 8rem;
+  }
+  @media (max-width: 500px) {
+    font-size: 6rem;
+  }
+  @media (max-width: 380px) {
+    font-size: 4rem;
+  }
+}
+
+img {
+  max-width: 100%;
+}
+
+.header {
+  margin-top: 1rem;
+  display: flex;
+  font-size: 1.8rem;
+  justify-content: center;
+  align-items: center;
+  color: $text-color;
+}
+
+.logo {
+  margin: 0 0.5rem;
 }

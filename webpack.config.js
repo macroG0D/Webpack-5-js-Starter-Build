@@ -18,6 +18,7 @@ module.exports = {
     main: ['@babel/polyfill', './js/main.js'],
   },
   output: {
+    publicPath: '',
     filename: filename('js'),
     path: path.resolve(__dirname, 'dist'),
   },
@@ -56,6 +57,18 @@ module.exports = {
           from: path.resolve(__dirname, 'src/favicon.png'),
           to: path.resolve(__dirname, 'dist'),
         },
+        {
+          from: path.resolve(__dirname, 'src/assets/images'),
+          to: path.resolve(__dirname, 'dist/assets/images'),
+        },
+        {
+          from: path.resolve(__dirname, 'src/assets/icons'),
+          to: path.resolve(__dirname, 'dist/assets/icons'),
+        },
+        {
+          from: path.resolve(__dirname, 'src/assets/sounds'),
+          to: path.resolve(__dirname, 'dist/assets/sounds'),
+        },
       ],
     }),
     new MiniCssExtractPlugin({
@@ -63,8 +76,6 @@ module.exports = {
     }),
     new ImageMinimizerPlugin({
       minimizerOptions: {
-        // Lossless optimization with custom option
-        // Feel free to experiment with options for better result for you
         plugins: [
           ['gifsicle', { interlaced: true }],
           ['jpegtran', { progressive: true }],

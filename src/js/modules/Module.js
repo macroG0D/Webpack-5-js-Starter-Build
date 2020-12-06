@@ -1,4 +1,4 @@
-export default class Model {
+export default class Module {
   constructor(title) {
     this.title = title;
   }
