@@ -1,6 +1,6 @@
 # Webpack 5 (js) Starter Build
 ![](https://github.com/macroG0D/webpack-starter/blob/master/src/favicon.png?raw=true)
-v1.0 
+v2.0 
 
 A ready to use javaScript Webpack 5 starter build for small front-end projects and SPA includes assets & code optimization. The build includes useful packages like webpack-dev-server, sass-loader, normalize-scss, image-minimizer, babel, eslint(airbnb) and others…
 
@@ -57,4 +57,4 @@ A ready to use javaScript Webpack 5 starter build for small front-end projects a
 
 <br>
 
-08/11/2020
+last update: 06/12/2020
